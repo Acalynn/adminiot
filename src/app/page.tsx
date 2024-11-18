@@ -1,9 +1,26 @@
+"use client"
 import Image from "next/image";
+import { Inter } from 'next/font/google';
+import { Montserrat } from 'next/font/google';
+const inter = Inter({ subsets: ['latin'] })
 
+import { useState } from "react";
 export default function Home() {
+
+  const [count, setCount] = useState(0);
+
+  const handleCount = () => setCount(count  +1 );
+
   return (
     <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
       <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
+        <button
+          onClick={handleCount}
+          className="bg-blue-500 hover:bg-blue-700 rounded py-2 px-4 text-white font-bold"
+      >
+          I have been clicked {count} times
+      </button>
+      <h6 className = {inter.className}>test</h6>
         <Image
           className="dark:invert"
           src="/next.svg"
